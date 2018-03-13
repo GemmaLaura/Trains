@@ -13,9 +13,9 @@ using namespace std;
 
 class Stop {
 	string nameStop;
-	string distanceToNext;
+	string* distanceToNext;
 public:
-	Stop(string n, string d) : nameStop (n), distanceToNext (d){}
+	Stop(string n, string* d = nullptr) : nameStop (n), distanceToNext (d){}
 
 	const string& getDistanceToNext() const;
 	const string& getNameStop() const;
