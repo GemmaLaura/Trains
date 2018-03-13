@@ -7,8 +7,19 @@
 
 #include "Line.h"
 
-void Line::add(Stop s);
+void Line::add(Stop s) {
+	stops.push_back(s);
+}
 
-Stop Line::get(int i);
+Stop Line::get(int index){
+	return stops[index];
+}
 
-Stop Line::find(string name);
+Stop Line::find(string name){
+	for (int i = 0; i < stops.size(); i++) {
+		if (stops[i].getNameStop() == name) {
+			return stops[i];
+		}
+
+	}
+}
