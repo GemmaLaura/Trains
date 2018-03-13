@@ -16,6 +16,9 @@ class Stop {
 	string distanceToNext;
 public:
 	Stop(string n, string d) : nameStop (n), distanceToNext (d){}
+
+	const string& getDistanceToNext() const;
+	const string& getNameStop() const;
 };
 
 #endif /* STOP_H_ */

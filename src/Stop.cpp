@@ -7,3 +7,10 @@
 
 #include "Stop.h"
 
+const string& Stop::getDistanceToNext() const {
+	return distanceToNext;
+}
+
+const string& Stop::getNameStop() const {
+	return nameStop;
+}
