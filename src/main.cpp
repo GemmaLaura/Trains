@@ -10,8 +10,13 @@
 #include "Stop.h"
 #include "Train.h"
 #include "Line.h"
+#include <thread>
 
 using namespace std;
+
+void start(Train t){
+	t.go();
+}
 
 int main() {
 
@@ -23,7 +28,13 @@ int main() {
 	line.add(stop2);
 	line.add(stop3);
 
-	Train t(0, 1, line);
-	t.go();
+	Train t("tren c4", 0, 1, line);
+	Train t2("tren c6", 0, 1, line);
+
+	std::thread tr1(start, t);
+	std::thread tr2(start, t2);
+	tr1.join();
+	tr2.join();
+
 
 }

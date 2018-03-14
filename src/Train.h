@@ -14,17 +14,19 @@
 using namespace std;
 
 class Train {
+	string name;
 	int currentStop;
 	int speed;
 	Line line;
 public:
-	Train(int c, int s, Line l) : currentStop (c), speed(s), line (l) {
+	Train(string n, int c, int s, Line l) : name (n), currentStop (c), speed(s), line (l) {
 		s = 0;
 	}
 
 	void go();
 	void stop();
-	void move ();
+	//void move ();
+
 
 };
 
