@@ -7,7 +7,7 @@
 
 #include "Stop.h"
 
-const string& Stop::getDistanceToNext() const {
+const int& Stop::getDistanceToNext() const {
 	return distanceToNext;
 }
 

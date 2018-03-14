@@ -9,6 +9,8 @@
 #define TRAIN_H_
 #include <iostream>
 #include "Line.h"
+#include <thread>
+#include <chrono>
 using namespace std;
 
 class Train {
@@ -19,8 +21,11 @@ public:
 	Train(int c, int s, Line l) : currentStop (c), speed(s), line (l) {
 		s = 0;
 	}
+
 	void go();
 	void stop();
+	void move ();
+
 };
 
 #endif /* TRAIN_H_ */

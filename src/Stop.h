@@ -13,12 +13,13 @@ using namespace std;
 
 class Stop {
 	string nameStop;
-	string* distanceToNext;
+	int distanceToNext;
 public:
-	Stop(string n, string* d = nullptr) : nameStop (n), distanceToNext (d){}
+	Stop(string n, int d=0) : nameStop (n), distanceToNext (d){}
 
-	const string& getDistanceToNext() const;
+	const int& getDistanceToNext() const;
 	const string& getNameStop() const;
+
 };
 
 #endif /* STOP_H_ */

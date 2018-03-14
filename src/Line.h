@@ -16,10 +16,11 @@ using namespace std;
 class Line {
 	vector<Stop>stops;
 public:
-	Line();
+	//Line();
 	void add(Stop s);
-	Stop get(int i);
-	Stop find(string name);
+	Stop getStop(int index);
+	Stop findStop(string name);
+
 
 };
 
