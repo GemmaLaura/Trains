@@ -23,9 +23,9 @@ public:
 		s = 0;
 	}
 
-	void go();
+	void stay();
 	void stop();
-	//void move ();
+	void move ();
 
 
 };

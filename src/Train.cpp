@@ -9,7 +9,7 @@
 #include <unistd.h>
 
 
-void Train::go(){
+void Train::stay(){
 	int distance=0;
 	int time=0;
 
@@ -22,12 +22,12 @@ void Train::go(){
 		for (int i = 0; i < time; ++i) {
 			cout<< " .\n"<< endl;
 			//std::this_thread::sleep_for(std::chrono::seconds(1));
-			sleep(1);
+			sleep(4);
 		}
 		currentStop++;
 	}
 
-	cout<< "Final de Trayecto"<< endl;
+	cout<< "Última parada. Final de Trayecto"<< endl;
 }
 
 void Train::stop(){
@@ -35,17 +35,12 @@ void Train::stop(){
 
 }
 
-//void Train::move () {
-//	for (int i = 0; i < ; ++i) {
-//		if (i!=line.getStop()-1){
-//			go();
-//		}else {
-//			cout<<"Parada: "<< line.getStop(currentStop).getNameStop()<< endl;
-//			stop();
-//		}
-//
-//	}
-//
-//}
+void Train::move () {
+	line.getStop(currentStop).s.wait();
+	stay();
+	line.getStop(currentStop).s.notify();
+
+}
+
 
 
