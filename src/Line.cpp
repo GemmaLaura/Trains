@@ -7,17 +7,17 @@
 
 #include "Line.h"
 
-void Line::add(Stop s) {
+void Line::add(Stop* s) {
 	stops.push_back(s);
 }
 
-Stop Line::getStop(int i){
+Stop* Line::getStop(int i){
 	return stops[i];
 }
 
-Stop Line::findStop(string name){
+Stop* Line::findStop(string name){
 	for (unsigned int i = 0; i < stops.size(); ++i) {
-		if (stops[i].getNameStop() == name) {
+		if (stops[i]->getNameStop() == name) {
 			return stops[i];
 		}
 

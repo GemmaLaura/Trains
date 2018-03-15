@@ -9,38 +9,44 @@
 #include <unistd.h>
 
 
-void Train::stay(){
+void Train::go(){
 	int distance=0;
 	int time=0;
 
-	while(line.getStop(currentStop).getDistanceToNext() != 0 ){
-		cout<< name << " Parada: "<< line.getStop(currentStop).getNameStop() << endl;
-		distance=line.getStop(currentStop).getDistanceToNext();
+	while(line->getStop(currentStop)->getDistanceToNext() != 0 ){
+		ostringstream text;
+		text<< name << " esperando: " << line->getStop(currentStop)->getNameStop() << '\n';
+		cout << text.str();
 
+		stay(currentStop);
+		distance =line->getStop(currentStop)->getDistanceToNext();
 		time = distance/speed;
 
-		for (int i = 0; i < time; ++i) {
-			cout<< " .\n"<< endl;
-			//std::this_thread::sleep_for(std::chrono::seconds(1));
-			sleep(4);
-		}
-		currentStop++;
+				for (int i = 0; i < time; ++i) {
+						ostringstream text5;
+						text5<< name << " .\n"<< endl;
+						cout << text5.str();
+						sleep(1);
+				}
+	currentStop++;
 	}
-
-	cout<< "Última parada. Final de Trayecto"<< endl;
+	ostringstream text3;
+	text3 << name << " Última parada. Final de Trayecto"<< '\n';
+	cout << text3.str();
 }
 
-void Train::stop(){
-	speed = 0;
+void Train::stay(int currentStop){
+	line->getStop(currentStop)->s.wait();
+	//lock_guard<mutex> guard(line->getStop(currentStop)->m);
+
+			ostringstream text2;
+			text2 << name << " parado: " << line->getStop(currentStop)->getNameStop() << '\n';
+			cout << text2.str();
+			sleep(3);
+			line->getStop(currentStop)->s.notify();
 
 }
 
-void Train::move () {
-	line.getStop(currentStop).s.wait();
-	stay();
-	line.getStop(currentStop).s.notify();
-
-}
 
 
 

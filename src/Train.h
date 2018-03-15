@@ -11,21 +11,22 @@
 #include "Line.h"
 #include <thread>
 #include <chrono>
+#include <sstream>
 using namespace std;
 
 class Train {
 	string name;
 	int currentStop;
 	int speed;
-	Line line;
+	Line* line;
 public:
-	Train(string n, int c, int s, Line l) : name (n), currentStop (c), speed(s), line (l) {
+	Train(string n, int c, int s, Line* l) : name (n), currentStop (c), speed(s), line (l) {
 		s = 0;
 	}
 
-	void stay();
-	void stop();
-	void move ();
+	void go();
+	void stay(int currentStop);
+
 
 
 };

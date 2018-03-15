@@ -14,3 +14,7 @@ const int& Stop::getDistanceToNext() const {
 const string& Stop::getNameStop() const {
 	return nameStop;
 }
+
+//mutex Stop::getM() const {
+//	return m;
+//}

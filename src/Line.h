@@ -14,12 +14,12 @@ using namespace std;
 
 
 class Line {
-	vector<Stop>stops;
+	vector<Stop*>stops;
 public:
 	//Line();
-	void add(Stop s);
-	Stop getStop(int index);
-	Stop findStop(string name);
+	void add(Stop* s);
+	Stop* getStop(int index);
+	Stop* findStop(string name);
 
 
 };
